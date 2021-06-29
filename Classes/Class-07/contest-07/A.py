@@ -9,17 +9,18 @@ def inputlf():
 [n,x,y,a0] = inputli()
 [m,z,t,b0] = inputli()
 
-a = [0 for i in range(n)]
+#a = [0 for i in range(n)]
 b = [0 for i in range(2*m)]
 c = [0 for i in range(2*m)]
 sum = [0 for i in range(n+1)]
 
 
-a[0] = a0
-sum[0] = a[0]
+a_back = a0
+sum[0] = a_back
 for i in range(1,n):
-    a[i] = (x*a[i-1]+y)%(1<<16)
-    sum[i] = sum[i-1]+a[i]
+    a = (x*a_back+y)%(1<<16)
+    sum[i] = sum[i-1]+a
+    a_back = a
 
 #print('a',a)
 
